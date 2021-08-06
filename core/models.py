@@ -28,3 +28,11 @@ class Imoveis(models.Model):
     def __str__(self):
         return self.Nome
 
+
+class Imobiliaria(models.Model):
+    Nome = models.CharField(max_length=50)
+    Endereco = models.CharField(max_length=100, blank=True)
+    
+    def __str__(self):
+        return self.Nome
+

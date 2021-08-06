@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from core.views import ImoveisViewSet
+from core.views import ImobiliariaViewSet
 from rest_framework import routers
 from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
@@ -11,14 +12,15 @@ from drf_yasg import openapi
 
 router = routers.DefaultRouter()
 router.register(r'imoveis', ImoveisViewSet)
+router.register(r'imobiliarias', ImobiliariaViewSet)
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Snippets API",
+      title="Teste Resale",
       default_version='v1',
-      description="Test description",
-      terms_of_service="https://www.google.com/policies/terms/",
-      contact=openapi.Contact(email="contact@snippets.local"),
+      description="API Imobiliaria Resale",
+      terms_of_service="",
+      contact=openapi.Contact(email="gustavo.grc@hotmail.com"),
       license=openapi.License(name="BSD License"),
    ),
    public=True,
@@ -28,8 +30,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('api-auth/', include('rest_framework.urls')),    
     path('documentacao/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
