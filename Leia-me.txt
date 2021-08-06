@@ -1,0 +1,10 @@
+Para acessar a documentação da API:
+
+ROTA/documentacao
+Ex:
+http://127.0.0.1:8000/documentacao/
+
+Para filtrar por Nome basta passar como parâmetro no GET:
+
+Ex:
+http://127.0.0.1:8000/imobiliarias/?Nome=Imobiliaria Chave Azul
